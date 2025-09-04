@@ -145,31 +145,30 @@
       background-color: #804020;
   }
   /* Table actions: Edit + Delete inline */
-table td form {
-    display: inline-block; /* keeps button inline with Edit link */
-    margin: 0;
-    padding: 0;
-}
+  table td form {
+      display: inline-block; /* keeps button inline with Edit link */
+      margin: 0;
+      padding: 0;
+  }
 
-table td a {
-    margin-right: 10px; /* space between Edit and Delete */
-    vertical-align: middle;
-}
+  table td a {
+      margin-right: 10px; /* space between Edit and Delete */
+      vertical-align: middle;
+  }
 
-table td button {
-    display: inline-block; /* make button inline */
-    padding: 4px 8px;
-    font-size: 12px;
-    margin: 0;
-    vertical-align: middle;
-    background-color: #a0522d;
-    border-radius: 4px;
-}
+  table td button {
+      display: inline-block; /* make button inline */
+      padding: 4px 8px;
+      font-size: 12px;
+      margin: 0;
+      vertical-align: middle;
+      background-color: #a0522d;
+      border-radius: 4px;
+  }
 
-table td button:hover {
-    background-color: #804020;
-}
-  
+  table td button:hover {
+      background-color: #804020;
+  }
 
   table a {
       color: #6b8e23;
@@ -207,12 +206,12 @@ table td button:hover {
           <td>${u.email}</td>
           <td>${u.role}</td>
           <td>
-    <a href="<c:url value='/admin/users/edit?userId=${u.id}'/>">Edit</a>
-    <form method="post" action="<c:url value='/admin/users/delete'/>">
-        <input type="hidden" name="userId" value="${u.id}"/>
-        <button type="submit">Delete</button>
-    </form>
-</td>
+            <a href="<c:url value='/admin/users/edit?userId=${u.id}'/>">Edit</a>
+            <form method="post" action="<c:url value='/admin/users/delete'/>">
+                <input type="hidden" name="userId" value="${u.id}"/>
+                <button type="submit">Delete</button>
+            </form>
+          </td>
         </tr>
       </c:if>
     </c:forEach>
@@ -221,9 +220,6 @@ table td button:hover {
 
 <h3>Allocate Task (Multiple Users)</h3>
 <form method="post" action="<c:url value='/admin/tasks/allocate'/>">
-  <label>Task Code</label>
-  <input name="taskCode" required/>
-
   <label>Title</label>
   <input name="title" required/>
 
@@ -247,12 +243,18 @@ table td button:hover {
 <h3>All Tasks</h3>
 <table>
   <thead>
-    <tr><th>Task Code</th><th>Title</th><th>Assignees</th><th>Status</th><th>Due</th><th>Actions</th><th>Comments</th></tr>
+    <tr>
+      <th>Title</th>
+      <th>Assignees</th>
+      <th>Status</th>
+      <th>Due</th>
+      <th>Actions</th>
+      <th>Comments</th>
+    </tr>
   </thead>
   <tbody>
     <c:forEach var="t" items="${tasks}">
       <tr>
-        <td>${t.taskCode}</td>
         <td>${t.title}</td>
         <td>
           <c:forEach var="u" items="${t.users}">
