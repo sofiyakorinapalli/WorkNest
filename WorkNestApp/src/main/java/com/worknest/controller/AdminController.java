@@ -130,7 +130,7 @@ public class AdminController {
 
 
     @PostMapping("/tasks/allocate")
-    public String allocate(@RequestParam String taskCode,
+    public String allocate(
                            @RequestParam String title,
                            @RequestParam(required=false) String description,
                            @RequestParam(required=false) String startDate,
@@ -141,7 +141,7 @@ public class AdminController {
         List<User> users = userIds.stream().map(id -> userService.byId(id)).toList();
 
         Task t = new Task();
-        t.setTaskCode(taskCode); // <-- manual ID
+       // <-- manual ID
         t.setTitle(title);
         t.setDescription(description);
         t.setStartDate(start);
